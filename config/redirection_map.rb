@@ -4,8 +4,8 @@ REDIRECTION_MAP = {
   'projects/control_tabs' => '/control/tabs',
   'projects/control_suite' => '/',
   'projects/control_textarea' => '/control/textarea',
-  'projects/photo_folder' => 'http://saucytiger.com/projects/sauce',
-  'ryan/photos' => 'http://saucytiger.com/photos',
+  'projects/photo_folder' => 'http://github.com/syntacticx/sauce',
+  'ryan/photos' => 'http://syntacticx.com/photos',
   'projects/control_progress_bar' => '/control/progressbar',
   'projects/control_select_multiple' => '/control/selectmultiple',
   'projects/object_event' => '/core',
@@ -15,5 +15,5 @@ REDIRECTION_MAP = {
   'projects' => '/',
   'community/*path' => 'http://groups.google.com/group/livepipe-ui-users',
   'projects/event_behavior' => '/extra/event_behavior',
-  'blog*' => 'http://saucytiger.com/journal'
+  'blog*' => 'http://syntacticx.com/journal'
 }
