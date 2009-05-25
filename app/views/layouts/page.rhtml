@@ -3,7 +3,7 @@
 	<head>
 		<title><%= @title || 'LivePipe&trade; : User Interface Components for Prototype' %></title>
                 <%= stylesheet_link_tag "screen.css", :cache => true %>
-                <%= javascript_include_tag 'prototype', 'effects', 'controls', 'dragdrop', 'slider', 'resizable', 'livepipe', 'contextmenu', 'cookie', 'event_behavior', 'hotkey', 'pagination', 'progressbar', 'rating', 'scrollbar', 'selection', 'selectmultiple', 'tabs', 'textarea', 'window', 'syntax', :cache => true %>
+                <%= javascript_include_tag 'prototype', 'effects', 'controls', 'dragdrop', 'slider', 'resizable', 'livepipe', 'contextmenu', 'cookie', 'event_behavior', 'hotkey', 'pagination', 'progressbar', 'rating', 'scrollbar', 'selection', 'selectmultiple', 'tabs', 'textarea', 'window', 'syntax', 'showdown', :cache => true %>
 		<%= yield :head %>
 	</head>
 	<body class="<%= params[:action] %>">
