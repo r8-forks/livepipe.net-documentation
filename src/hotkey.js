@@ -7,10 +7,12 @@
  * @require prototype.js, livepipe.js
  */
 
-if(typeof(Prototype) == "undefined")
-	throw "HotKey requires Prototype to be loaded.";
-if(typeof(Object.Event) == "undefined")
-	throw "HotKey requires Object.Event to be loaded.";
+/*global document, Prototype, Class, Event, $ */
+
+if(typeof(Prototype) == "undefined") {
+	throw "HotKey requires Prototype to be loaded."; }
+if(typeof(Object.Event) == "undefined") {
+	throw "HotKey requires Object.Event to be loaded."; }
 
 var HotKey = Class.create({
 	initialize: function(letter,callback,options){
@@ -33,8 +35,8 @@ var HotKey = Class.create({
 					(!this.options.ctrlKey || (this.options.ctrlKey && event.ctrlKey))
 				)
 			)){
-				if(this.notify('beforeCallback',event) === false)
-					return;
+				if(this.notify('beforeCallback',event) === false) {
+					return; }
 				this.callback(event);
 				this.notify('afterCallback',event);
 			}
@@ -52,7 +54,7 @@ var HotKey = Class.create({
 	},
 	destroy: function(){
 		this.disable();
-		HotKey.hotkeys = Control.HotKey.hotkeys.without(this);
+		HotKey.hotkeys = HotKey.hotkeys.without(this);
 	}
 });
 Object.extend(HotKey,{

@@ -297,11 +297,11 @@ Object.extend(document, {
 			delta =- event.detail / 3;
 		if(!delta)
 			return;
-		var custom_event = event.element().fire('mouse:wheel',{
+		var custom_event = Event.element(event).fire('mouse:wheel',{
 			delta: delta
 		});
 		if(custom_event.stopped){
-			event.stop();
+			Event.stop(event);
 			return false;
 		}
 	}

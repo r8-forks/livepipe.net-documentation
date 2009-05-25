@@ -39,7 +39,7 @@ Control.Tabs = Class.create({
 			? $(tab_list_container).select(this.options.linkSelector)
 			: this.options.linkSelector($(tab_list_container))
 		).findAll(function(link){
-			return (/^#/).exec(link.href.replace(window.location.href.split('#')[0],''));
+			return (/^#/).exec((Prototype.Browser.WebKit ? decodeURIComponent(link.href) : link.href).replace(window.location.href.split('#')[0],''));
 		}).each(function(link){
 			this.addTab(link);
 		}.bind(this));
@@ -75,7 +75,7 @@ Control.Tabs = Class.create({
 	},
 	addTab: function(link){
 		this.links.push(link);
-		link.key = link.getAttribute('href').replace(window.location.href.split('#')[0],'').split('/').last().replace(/#/,'');
+		link.key = link.getAttribute('href').replace(window.location.href.split('#')[0],'').split('#').last().replace(/#/,'');
 		var container = $(link.key);
 		if(!container)
 			throw "Control.Tabs: #" + link.key + " was not found on the page."
@@ -88,12 +88,14 @@ Control.Tabs = Class.create({
 		}.bind(this,link);
 	},
 	setActiveTab: function(link){
-		if(!link)
+		if(!link && typeof(link) == 'undefined')
 			return;
 		if(typeof(link) == 'string'){
 			this.setActiveTab(this.links.find(function(_link){
 				return _link.key == link;
 			}));
+		}else if(typeof(link) == 'number'){
+			this.setActiveTab(this.links[link]);
 		}else{
 			if(this.notify('beforeChange',this.activeContainer,this.containers.get(link.key)) === false)
 				return;

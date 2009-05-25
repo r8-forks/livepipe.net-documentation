@@ -7,10 +7,12 @@
  * @require prototype.js, livepipe.js
  */
 
-if(typeof(Prototype) == "undefined")
-	throw "Control.Rating requires Prototype to be loaded."
-if(typeof(Object.Event) == "undefined")
-	throw "Control.Rating requires Object.Event to be loaded.";
+/*global document, Prototype, Ajax, Class, Event, $, $A, $F, $R, $break, Control */
+
+if(typeof(Prototype) == "undefined") {
+	throw "Control.Rating requires Prototype to be loaded."; }
+if(typeof(Object.Event) == "undefined") {
+	throw "Control.Rating requires Object.Event to be loaded."; }
 
 Control.Rating = Class.create({
 	initialize: function(container,options){
@@ -88,7 +90,7 @@ Control.Rating = Class.create({
 		}.bind(this));
 	},
 	setValueFromInput: function(input,prevent_callbacks){
-		this.setValue((input.options ? input.options[input.options.selectedIndex].value : input.value),true,prevent_callbacks);
+        this.setValue($F(input),true,prevent_callbacks);
 	},
 	setValue: function(value,force_selected,prevent_callbacks){
 		this.value = value;
@@ -100,15 +102,15 @@ Control.Rating = Class.create({
 						throw $break;
 					}
 				}.bind(this));
-			}else
-				this.options.input.value = this.value;
+			}else {
+				this.options.input.value = this.value; }
 		}
 		this.render(this.value,force_selected);
 		if(!prevent_callbacks){
 			if(this.options.updateUrl){
-				var params = {};
+				var params = {}, a;
 				params[this.options.updateParameterName] = this.value;
-				new Ajax.Request(this.options.updateUrl,{
+				a = new Ajax.Request(this.options.updateUrl,{
 					parameters: params
 				});
 			}
@@ -119,10 +121,10 @@ Control.Rating = Class.create({
 		(this.options.reverse ? this.links.reverse() : this.links).each(function(link,i){
 			if(link.value <= Math.ceil(rating)){
 				link.className = this.options.classNames[link.value <= rating ? 'on' : 'half'];
-				if(this.options.rated || force_selected)
-					link.addClassName(this.options.classNames.selected);
-			}else
-				link.className = this.options.classNames.off;
+				if(this.options.rated || force_selected) {
+					link.addClassName(this.options.classNames.selected); }
+			}else {
+				link.className = this.options.classNames.off; }
 		}.bind(this));
 	},
 	mouseOver: function(link){
@@ -134,8 +136,8 @@ Control.Rating = Class.create({
 	click: function(event,link){
 		this.options.rated = true;
 		this.setValue((link.value ? link.value : link),true);
-		if(!this.options.multiple)
-			this.disable();
+		if(!this.options.multiple) {
+			this.disable(); }
 		if(this.options.capture){
 			Event.stop(event);
 			return false;

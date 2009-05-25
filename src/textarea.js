@@ -7,10 +7,12 @@
  * @require prototype.js, livepipe.js
  */
 
-if(typeof(Prototype) == "undefined")
-	throw "Control.TextArea requires Prototype to be loaded.";
-if(typeof(Object.Event) == "undefined")
-	throw "Control.TextArea requires Object.Event to be loaded.";
+/*global window, document, Prototype, Class, $, $A, Control */
+
+if(typeof(Prototype) == "undefined") {
+	throw "Control.TextArea requires Prototype to be loaded."; }
+if(typeof(Object.Event) == "undefined") {
+	throw "Control.TextArea requires Object.Event to be loaded."; }
 
 Control.TextArea = Class.create({
 	initialize: function(textarea){
@@ -25,8 +27,8 @@ Control.TextArea = Class.create({
 		}
 	},
 	doOnChange: function(event){
-		if(this.onChangeTimeout)
-			window.clearTimeout(this.onChangeTimeout);
+		if(this.onChangeTimeout) {
+			window.clearTimeout(this.onChangeTimeout); }
 		this.onChangeTimeout = window.setTimeout(function(){
 			this.notify('change',this.getValue());
 		}.bind(this),Control.TextArea.onChangeTimeoutLength);
@@ -38,12 +40,12 @@ Control.TextArea = Class.create({
 		return this.element.value;
 	},
 	getSelection: function(){
-		if(!!document.selection)
-			return document.selection.createRange().text;
-		else if(!!this.element.setSelectionRange)
-			return this.element.value.substring(this.element.selectionStart,this.element.selectionEnd);
-		else
-			return false;
+		if(!!document.selection) {
+			return document.selection.createRange().text; }
+		else if(!!this.element.setSelectionRange) {
+			return this.element.value.substring(this.element.selectionStart,this.element.selectionEnd); }
+		else {
+			return false; }
 	},
 	replaceSelection: function(text){
 		var scroll_top = this.element.scrollTop;
@@ -62,7 +64,13 @@ Control.TextArea = Class.create({
 		this.element.scrollTop = scroll_top;
 	},
 	wrapSelection: function(before,after){
-		this.replaceSelection(before + this.getSelection() + after);
+        var sel = this.getSelection();
+        // Remove the wrapping if the selection has the same before/after
+        if (sel.indexOf(before) === 0 && 
+            sel.lastIndexOf(after) === (sel.length - after.length)) {
+            this.replaceSelection(sel.substring(before.length, 
+                sel.length - after.length));
+        } else { this.replaceSelection(before + sel + after); }
 	},
 	insertBeforeSelection: function(text){
 		this.replaceSelection(text + this.getSelection());
@@ -86,15 +94,15 @@ Object.Event.extend(Control.TextArea);
 Control.TextArea.ToolBar = Class.create(	{
 	initialize: function(textarea,toolbar){
 		this.textarea = textarea;
-		if(toolbar)
-			this.container = $(toolbar);
+		if(toolbar) {
+			this.container = $(toolbar); }
 		else{
 			this.container = $(document.createElement('ul'));
 			this.textarea.element.parentNode.insertBefore(this.container,this.textarea.element);
 		}
 	},
 	attachButton: function(node,callback){
-		node.onclick = function(){return false;}
+        node.onclick = function(){return false;};
 		$(node).observe('click',callback.bindAsEventListener(this.textarea));
 	},
 	addButton: function(link_text,callback,attrs){
