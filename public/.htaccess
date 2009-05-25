@@ -38,3 +38,17 @@ RewriteRule ^(.*)$ dispatch.cgi [QSA,L]
 #   ErrorDocument 500 /500.html
 
 ErrorDocument 500 "<h2>Application error</h2>Rails application failed to start properly"
+
+# gzip and expires headers
+<IfModule mod_expires.c>
+  <FilesMatch "\.(js|css|gif|jpe?g|png)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 5 years"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_deflate.c>
+  <FilesMatch "\.(js|css)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+
