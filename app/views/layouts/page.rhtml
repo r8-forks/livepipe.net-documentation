@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title><%= @title || 'LivePipe&trade; : User Interface Components for Prototype' %></title>
-		<link rel="stylesheet" href="/stylesheets/screen.css"/>
+                <%= stylesheet_link_tag "screen.css", :cache => true %>
 		<%= javascript_include_tag 'prototype' %>
 		
 		<%= javascript_include_tag 'effects' %>
