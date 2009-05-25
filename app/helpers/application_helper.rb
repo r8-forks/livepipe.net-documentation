@@ -3,29 +3,29 @@ module ApplicationHelper
   def api_table(name = false,*labels,&block)
     table = ItemTable.new
     yield table
-    concat(subhead(name),block.binding) if name
-    concat(render(:partial => 'components/api_table', :locals => {:items => table.items,:labels => labels}),block.binding)
+    concat(subhead(name)) if name
+    concat(render(:partial => 'components/api_table', :locals => {:items => table.items,:labels => labels}))
   end
   
   def options_table(name = false,*labels,&block)
     table = ItemTable.new
     yield table
-    concat(subhead(name),block.binding) if name
-    concat(render(:partial => 'components/options_table', :locals => {:items => table.items,:labels => labels}),block.binding)
+    concat(subhead(name)) if name
+    concat(render(:partial => 'components/options_table', :locals => {:items => table.items,:labels => labels}))
   end
   
   def events_table(name = false,*labels,&block)
     table = ItemTable.new
     yield table
-    concat(subhead(name),block.binding) if name
-    concat(render(:partial => 'components/events_table', :locals => {:items => table.items,:labels => labels}),block.binding)
+    concat(subhead(name)) if name
+    concat(render(:partial => 'components/events_table', :locals => {:items => table.items,:labels => labels}))
   end
   
   def examples_table(name = false,*labels,&block)
     table = ItemTable.new(false)
     yield table
-    concat(subhead(name),block.binding) if name
-    concat(render(:partial => 'components/examples_table', :locals => {:items => table.items,:labels => labels}),block.binding)
+    concat(subhead(name)) if name
+    concat(render(:partial => 'components/examples_table', :locals => {:items => table.items,:labels => labels}))
   end
   
   class ItemTable	  
@@ -59,31 +59,31 @@ module ApplicationHelper
 	end
 	
 	def javascript(name = false,&block)
-	  concat(subhead(name),block.binding) if name
-	  concat('<pre class="highlighted"><code class="javascript">',block.binding)
+	  concat(subhead(name)) if name
+	  concat('<pre class="highlighted"><code class="javascript">')
     yield
-	  concat('</code></pre>',block.binding)
+	  concat('</code></pre>')
 	end
 	
 	def html(name = false,&block)
-	  concat(subhead(name),block.binding) if name
-	  concat('<pre class="highlighted"><code class="xml">',block.binding)
+	  concat(subhead(name)) if name
+	  concat('<pre class="highlighted"><code class="xml">')
     yield
-	  concat('</code></pre>',block.binding)
+	  concat('</code></pre>')
 	end
 	
 	def css(name = false,&block)
-	  concat(subhead(name),block.binding) if name
-	  concat('<pre class="highlighted"><code class="css">',block.binding)
+	  concat(subhead(name)) if name
+	  concat('<pre class="highlighted"><code class="css">')
     yield
-	  concat('</code></pre>',block.binding)
+	  concat('</code></pre>')
 	end
 	
 	def header(name = '',&block)
 	  if block_given?	  
-  	  concat('<h1>',block.binding)
+  	  concat('<h1>')
   	  yield
-  	  concat('</h1>',block.binding)
+  	  concat('</h1>')
 	  else
 	    "<h1>#{name}</h1>"
 	  end
@@ -91,9 +91,9 @@ module ApplicationHelper
 	
 	def subhead(name = '',options = {},&block)
 	  if block_given?
-  	  concat('<h3' + (options[:border] === false ? ' class="borderless"' : '') + '>',block.binding)
+  	  concat('<h3' + (options[:border] === false ? ' class="borderless"' : '') + '>')
   	  yield
-  	  concat('</h3>',block.binding)
+  	  concat('</h3>')
     else
       "<h3" + (options[:border] === false ? ' class="borderless"' : '') + ">#{name}</h3>"
     end
@@ -101,31 +101,31 @@ module ApplicationHelper
 	
 	def introduction(introduction = '',&block)
 	  if block_given?
-  	  concat('<p class="introduction">',block.binding)
+  	  concat('<p class="introduction">')
   	  yield
-  	  concat('</p>',block.binding)
+  	  concat('</p>')
 	  else
 	    "<p class=\"introduction\">#{introduction}</p>"
 	  end
 	end
 	
 	def paragraph(name = false,&block)
-	  concat(subhead(name),block.binding) if name
-	  concat('<p>',block.binding)
+	  concat(subhead(name)) if name
+	  concat('<p>')
 	  yield
-	  concat('</p>',block.binding)
+	  concat('</p>')
   end
   
   def section(id,&block)
-	  concat("<div id=\"#{id}\">",block.binding)
+	  concat("<div id=\"#{id}\">")
 	  yield
-	  concat('</div>',block.binding)
+	  concat('</div>')
   end
   
   def tabs(id,&block)
     tabs = Tabs.new(id)
     yield tabs
-    concat(render(:partial => 'components/tabs',:locals => {:tabs => tabs}),block.binding)
+    concat(render(:partial => 'components/tabs',:locals => {:tabs => tabs}))
   end
   
   class Tabs
