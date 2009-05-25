@@ -1,4 +1,7 @@
 log/*.log
 tmp/**/*
+public/javascripts/all.*
+public/stylesheets/all.*
+public/[!\d]+.html
 doc/api
 doc/app
