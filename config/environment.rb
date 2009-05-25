@@ -12,7 +12,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   #secret is irellevant as there are no users/logins
-  config.action_controller.session = { :session_key => "_livepipe", :secret => "5d7845ac6ee7cfffafc5fe5f35cf666d" }
+  config.action_controller.session = { :session_key => "_LivePipe.net_session_id", :secret => "5d7845ac6ee7cfffafc5fe5f35cf666d" }
   
   # Settings in config/environments/* take precedence over those specified here
 
