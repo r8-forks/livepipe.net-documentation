@@ -3,33 +3,7 @@
 	<head>
 		<title><%= @title || 'LivePipe&trade; : User Interface Components for Prototype' %></title>
                 <%= stylesheet_link_tag "screen.css", :cache => true %>
-		<%= javascript_include_tag 'prototype' %>
-		
-		<%= javascript_include_tag 'effects' %>
-		<%= javascript_include_tag 'controls' %>
-		<%= javascript_include_tag 'dragdrop' %>
-		<%= javascript_include_tag 'slider' %>
-		
-		<%= javascript_include_tag 'resizable' %>
-		
-		<%= javascript_include_tag 'livepipe' %>
-		
-		<%= javascript_include_tag 'contextmenu' %>
-		<%= javascript_include_tag 'cookie' %>
-		<%= javascript_include_tag 'event_behavior' %>
-		<%= javascript_include_tag 'hotkey' %>
-		<%= javascript_include_tag 'pagination' %>
-		<%= javascript_include_tag 'progressbar' %>
-		<%= javascript_include_tag 'rating' %>
-		<%= javascript_include_tag 'scrollbar' %>
-		<%= javascript_include_tag 'selection' %>
-		<%= javascript_include_tag 'selectmultiple' %>
-		<%= javascript_include_tag 'tabs' %>
-		<%= javascript_include_tag 'textarea' %>
-		<%= javascript_include_tag 'window' %>
-		
-		<%= javascript_include_tag 'syntax' %>
-		
+                <%= javascript_include_tag 'prototype', 'effects', 'controls', 'dragdrop', 'slider', 'resizable', 'livepipe', 'contextmenu', 'cookie', 'event_behavior', 'hotkey', 'pagination', 'progressbar', 'rating', 'scrollbar', 'selection', 'selectmultiple', 'tabs', 'textarea', 'window', 'syntax', :cache => true %>
 		<%= yield :head %>
 	</head>
 	<body class="<%= params[:action] %>">
