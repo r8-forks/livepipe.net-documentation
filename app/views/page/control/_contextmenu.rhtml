@@ -183,7 +183,7 @@
 		<% api_table 'Item Hash Structure','Type','Key','Description' do |api| %>
 			<% api.item :type => 'bool', :key => 'enabled', :description => 'Wether the menu item is enabled. Defaults to true. Can be a function that returns bool.' %>
 			<% api.item :type => 'string', :key => 'label', :description => 'Text that will appear in the menu. Can be a function that returns a string.' %>
-			<% api.item :type => 'function', :key => 'callback', :description => 'Will be called when the menu item is selected.' %>
+	                <% api.item :type => 'function', :key => 'callback(Element clicked_element)', :description => 'Will be called when the menu item is selected.' %>
 			<% api.item :type => 'function', :key => 'condition', :description => 'Optional condition that will be called each time the menu is opened to see if the item will be included in the menu.' %>
 		<% end %>
 	<% end %>
