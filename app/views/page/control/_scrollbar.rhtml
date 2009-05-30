@@ -73,7 +73,7 @@
 	});
 	
 	$('scroll_insert').observe('click',function(event){
-		$('scrollbar_content').insert('<p><b>Inserted: ' + $('repeat').innerHTML + '</b></p>');
+		$('scrollbar_content').insert('&lt;p><b>Inserted: ' + $('repeat').innerHTML + '</b>&lt;/p&gt;');
 		//you only need to call this if ajax or dom operations modify the layout
 		//this is automatically called when the window resizes
 		scrollbar.recalculateLayout();
