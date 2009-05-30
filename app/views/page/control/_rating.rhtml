@@ -171,6 +171,7 @@
 		<% options.item :type => 'bool', :name => 'multiple', :default => 'false', :description => 'Can the user rate multiple times.' %>
 		<% options.item :type => 'Hash', :name => 'classNames', :default => '{off: \'rating_off\', half: \'rating_half\', on: \'rating_on\', selected: \'rating_selected\'}', :description => 'Hash of state dependent class names.' %>
 		<% options.item :type => 'mixed', :name => 'updateUrl', :default => 'false', :description => 'false or string URL to post an Ajax request to when the value changes.' %>
+                <% options.item :type => 'Hash', :name => 'updateOptions', :default => '{}', :description => '<a href="http://prototypejs.org/api/ajax/options">Ajax Options</a> for the request.' %>
 		<% options.item :type => 'string', :name => 'updateParameterName', :default => '\'value\'', :description => 'The name of the POST key that will contain the value.' %>
 	<% end %>
 	<% events_table 'Events' do |events| %>

@@ -68,7 +68,7 @@
 	<% api_table 'Instance' do |api| %>
 		<% api.item :returns => 'Control.ProgressBar', :signature => 'initialize(Element container [,Hash options])', :description => '' %>
 		<% api.item :returns => 'null', :signature => 'setProgress(number value)', :description => '' %>
-		<% api.item :returns => 'null', :signature => 'poll(string url [,number interval])', :description => 'Begin polling a given url at an interval (default 3000ms). URL should return an int between the 0 and 100 to set the progress percentage.' %>
+		<% api.item :returns => 'null', :signature => 'poll(string url [,number interval,Hash ajax_options])', :description => 'Begin polling a given url at an interval (default 3000ms). URL should return an int between the 0 and 100 to set the progress percentage.' %>
 		<% api.item :returns => 'null', :signature => 'start()', :description => 'Start drawing the progress bar at the interval and step in the options hash.' %>
 		<% api.item :returns => 'null', :signature => 'stop()', :description => '' %>
 		<% api.item :returns => 'null', :signature => 'step(number value)', :description => 'Increment the progress bar by a given amount.' %>
