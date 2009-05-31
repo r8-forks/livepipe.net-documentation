@@ -137,6 +137,8 @@ $('remote_trigger').observe('click',function(event){
 		<% options.item :type => 'bool', :name => 'shiftKey', :default => 'false', :description => '' %>
 		<% options.item :type => 'bool', :name => 'altKey', :default => 'false', :description => '' %>
 		<% options.item :type => 'bool', :name => 'ctrlKey', :default => 'true', :description => 'Defaults to true, emulating accesskey behavior.' %>
+		<% options.item :type => 'bool', :name => 'bubbleEvent', :default => 'true', :description => 'Allow key events to bubble?' %>
+		<% options.item :type => 'bool', :name => 'fireOnce', :default => 'false', :description => 'Keep repeating event while key is pressed?' %>
 	<% end %>
 	<% events_table 'Events' do |events| %>
 		<% events.item :signature => 'beforeCallback()', :description => 'Throwing $break will prevent the callback from being called.' %>
