@@ -23,5 +23,6 @@ ACTIONS = {
   'download' => '/download',
   'core' => '/core',
   'extras' => '/extra',
-  'controls' => '/control'
+  'controls' => '/control',
+  'ajax_example' => '/ajax_example'
 }

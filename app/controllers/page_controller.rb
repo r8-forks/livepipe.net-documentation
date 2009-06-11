@@ -14,9 +14,12 @@ class PageController < ApplicationController
   end
   
   def control
-    render :text => 'This content is the response from an AJAX call.' if params.has_key? :ajax
   end
   
+  def ajax_example
+    render :text => 'This content is the response from an AJAX call.'
+  end
+
   def extras
     
   end

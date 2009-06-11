@@ -113,7 +113,7 @@
 		<% examples.item :name => '<a href="#centered">Centered Window / Content on Page</a>', :options => "className: 'simple_window', closeOnClick: true" %>
 		<% examples.item :name => '<a href="#relative">Relative Window / Dynamic Content</a>', :options => "position: 'relative', className: 'simple_window', closeOnClick: true" %>
 		<% examples.item :name => '<a href="#hoverbox">HoverBox</a>', :options => "position: 'relative', offsetLeft: 75, width: 175, hover: true, className: 'tooltip'" %>
-		<% examples.item :name => '<a href="?ajax">Relative Window / Content from Ajax</a>', :options => "offsetLeft: 150, position: 'relative', className: 'simple_window', closeOnClick: 'container'" %>
+		<% examples.item :name => '<a href="/ajax_example">Relative Window / Content from Ajax</a>', :options => "offsetLeft: 150, position: 'relative', className: 'simple_window', closeOnClick: 'container'" %>
 		<% examples.item :name => '<a href="/stylesheets/sample_images/tabs_example_1_big.jpg" id="styled_window_one" title="Piha Beach, New Zealand">Draggable / Styled Window One</a>', :options => "window_factory() options" %>
 		<% examples.item :name => '<a href="/stylesheets/sample_images/tabs_example_2_big.jpg" id="styled_window_two" title="Pioneer Mountains, Idaho">Draggable / Styled Window Two</a>', :options => "window_factory() options" %>
 		<% examples.item :name => '<a href="/stylesheets/sample_images/tabs_example_3_big.jpg" id="modal">Modal Window</a>', :options => "fade: true, overlayOpacity: 0.75, className: 'modal'" %>
@@ -221,7 +221,7 @@
 		});
 
 		//Relative Window / Content from Ajax
-		var ajax = new Control.Window($(document.body).down('[href=?ajax]'),{
+		var ajax = new Control.Window($(document.body).down('[href=/ajax_example]'),{
 			className: 'simple_window',
 			closeOnClick: 'container',
 			offsetLeft: 150
