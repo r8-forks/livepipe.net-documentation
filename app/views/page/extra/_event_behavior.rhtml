@@ -285,7 +285,7 @@ with(Event.Behavior){
 		<option>Saskatchewan</option>
 	</select>
 </div>
-<h3 style="clear:both;" class="float_margin">Basic Sentance Construction</h3>
+<h3 style="clear:both;" class="float_margin">Basic Sentence Construction</h3>
 <% paragraph do %>The basic rule is: one verb construct, followed by when(), followed by at least one event or condition. If no events are specified, changes() is implicit.<% end %>
 <table cellpadding="0" cellspacing="0" width="100%">
 	<thead>
@@ -304,7 +304,7 @@ with(Event.Behavior){
 		<tr><td><b>call</b>(function)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 	</tbody>
 </table>
-<% paragraph do %>You can use any of the constructs in any of the columns above to construct a sentance. Below is a simpler version of the font picker.<% end %>
+<% paragraph do %>You can use any of the constructs in any of the columns above to construct a sentence. Below is a simpler version of the font picker.<% end %>
 <% javascript do %><%= paragraphs %><% end %>
 <div style="float:left;">
 	<div class="label">Color</div>
@@ -325,7 +325,7 @@ with(Event.Behavior){
 <div class="demo float_margin" style="clear:both;">
 	<p id="paragraph">When you change one of the selects above, the styles of this paragraph will change.</p>
 </div>
-<% paragraph 'Construcing Sentances With Functions' do %>The above example describes what is actually happening very well, but it won't scale as we add selects and paragraphs. To accommodate this, virtually very word can accept a function instead of a scalar argument. The table below shows the return type from any functions you define.<% end %>
+<% paragraph 'Construcing Sentences With Functions' do %>The above example describes what is actually happening very well, but it won't scale as we add selects and paragraphs. To accommodate this, virtually very word can accept a function instead of a scalar argument. The table below shows the return type from any functions you define.<% end %>
 <table cellpadding="0" cellspacing="0" width="100%">
 	<thead>
 		<tr><td>Verbs</td><td>Nouns</td><td>Events</td><td>Conditions</td></tr>
@@ -344,7 +344,7 @@ with(Event.Behavior){
 	</tbody>
 </table>
 <% paragraph do %>Note that call() always expects a function, and will call it. The function you pass in doesn't need to return anything.<% end %>
-<% paragraph do %>To demonstrate the construction of sentances with functions, the full code behind the example at the top of the page was:<% end %>
+<% paragraph do %>To demonstrate the construction of sentences with functions, the full code behind the example at the top of the page was:<% end %>
 <% javascript do %><%= vocabulary %>
 <%= initial_example %><% end %>
 
