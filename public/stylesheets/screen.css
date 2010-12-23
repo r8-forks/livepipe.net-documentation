@@ -506,9 +506,9 @@ body {
 	display:none;
 }
 
-body.download #personal_grid,
-body.index #personal_grid,
-body.core #personal_grid {
+body.download #syntacticx,
+body.index #syntacticx,
+body.core #syntacticx {
 	top:115px;
 }
 
