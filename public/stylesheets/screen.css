@@ -491,15 +491,15 @@ body {
 	color:#8B9F67;
 }
 
-#personal_grid {
+#syntacticx {
 	display:block;
 	position:absolute;
 	top:145px;
 	right:30px;
 	border:0;
-	width:179px;
-	height:57px;
-	background-image:url("personal_grid.gif");
+	width:169px;
+	height:55px;
+	background-image:url("syntacticx.png");
 }
 
 #personal_grid span {
